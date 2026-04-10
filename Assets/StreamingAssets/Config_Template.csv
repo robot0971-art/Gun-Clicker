@@ -1,0 +1,5 @@
+Id,Key,ValueInt,ValueFloat,ValueString
+1,StartingMoney,0,0,
+2,ClickEffectDuration,0,0.5,
+3,UnlockAnimationDuration,0,1,
+4,MaxUpgradeLevel,10,0,
