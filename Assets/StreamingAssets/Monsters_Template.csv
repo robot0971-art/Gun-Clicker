@@ -1,9 +1,0 @@
-Id,Name,BaseHP,BaseDefense,ExpReward,GoldReward,HpScaling,SpriteName
-1,Goblin,100,0,50,10,1.1,Goblin
-2,Orc,200,5,100,20,1.1,Orc
-3,Wolf,150,3,80,15,1.1,Wolf
-4,Skeleton,300,8,150,30,1.15,Skeleton
-5,Zombie,500,10,250,50,1.15,Zombie
-6,OrcWarrior,800,15,400,80,1.2,OrcWarrior
-7,DarkKnight,1500,25,700,150,1.2,DarkKnight
-8,Dragon,3000,40,1500,300,1.25,Dragon

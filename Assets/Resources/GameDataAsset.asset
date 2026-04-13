@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481ef3f48cf4797459022a7b9e54f869, type: 3}
+  m_Name: GameDataAsset
+  m_EditorClassIdentifier: Assembly-CSharp::GameDataAsset
+  guns:
+  - Id: 0
+    Name: Luger
+    ClickValue: 1
+    UnlockClicks: 0
+    SpriteName: Luger
+    BaseDamage: 4
+    AttackSpeed: 1
+    CriticalChance: 0.05
+    CriticalMultiplier: 1.5
+    EvolveLevel: 8
+    NextGunId: 1
+    IsFinalForm: 0
+  - Id: 1
+    Name: M92
+    ClickValue: 2
+    UnlockClicks: 10
+    SpriteName: M92
+    BaseDamage: 8
+    AttackSpeed: 1
+    CriticalChance: 0.08
+    CriticalMultiplier: 1.6
+    EvolveLevel: 16
+    NextGunId: 2
+    IsFinalForm: 0
+  - Id: 2
+    Name: Revolver
+    ClickValue: 4
+    UnlockClicks: 25
+    SpriteName: Revolver
+    BaseDamage: 15
+    AttackSpeed: 0.9
+    CriticalChance: 0.1
+    CriticalMultiplier: 1.8
+    EvolveLevel: 32
+    NextGunId: 3
+    IsFinalForm: 0
+  - Id: 3
+    Name: M15
+    ClickValue: 8
+    UnlockClicks: 60
+    SpriteName: M15
+    BaseDamage: 25
+    AttackSpeed: 0.8
+    CriticalChance: 0.12
+    CriticalMultiplier: 1.9
+    EvolveLevel: 70
+    NextGunId: 4
+    IsFinalForm: 0
+  - Id: 4
+    Name: MP5
+    ClickValue: 14
+    UnlockClicks: 120
+    SpriteName: MP5
+    BaseDamage: 40
+    AttackSpeed: 0.12
+    CriticalChance: 0.15
+    CriticalMultiplier: 2
+    EvolveLevel: 140
+    NextGunId: 5
+    IsFinalForm: 0
+  - Id: 5
+    Name: SawedOffShotgun
+    ClickValue: 24
+    UnlockClicks: 250
+    SpriteName: SawedOffShotgun
+    BaseDamage: 70
+    AttackSpeed: 0.75
+    CriticalChance: 0.18
+    CriticalMultiplier: 2.5
+    EvolveLevel: 300
+    NextGunId: 6
+    IsFinalForm: 0
+  - Id: 6
+    Name: M24
+    ClickValue: 40
+    UnlockClicks: 500
+    SpriteName: M24
+    BaseDamage: 120
+    AttackSpeed: 1.5
+    CriticalChance: 0.1
+    CriticalMultiplier: 2.2
+    EvolveLevel: 650
+    NextGunId: 7
+    IsFinalForm: 0
+  - Id: 7
+    Name: AK47
+    ClickValue: 65
+    UnlockClicks: 0
+    SpriteName: AK47
+    BaseDamage: 200
+    AttackSpeed: 0.15
+    CriticalChance: 0.22
+    CriticalMultiplier: 2.8
+    EvolveLevel: 0
+    NextGunId: -1
+    IsFinalForm: 1
+  upgrades:
+  - Id: 0
+    GunId: 0
+    BaseCost: 25
+    CostMultiplier: 1.25
+    ValueMultiplier: 1.1
+    MaxLevel: 20
+  - Id: 1
+    GunId: 1
+    BaseCost: 75
+    CostMultiplier: 1.28
+    ValueMultiplier: 1.12
+    MaxLevel: 25
+  - Id: 2
+    GunId: 2
+    BaseCost: 150
+    CostMultiplier: 1.3
+    ValueMultiplier: 1.15
+    MaxLevel: 30
+  - Id: 3
+    GunId: 3
+    BaseCost: 300
+    CostMultiplier: 1.32
+    ValueMultiplier: 1.18
+    MaxLevel: 35
+  - Id: 4
+    GunId: 4
+    BaseCost: 600
+    CostMultiplier: 1.35
+    ValueMultiplier: 1.2
+    MaxLevel: 40
+  - Id: 5
+    GunId: 5
+    BaseCost: 1200
+    CostMultiplier: 1.38
+    ValueMultiplier: 1.25
+    MaxLevel: 45
+  - Id: 6
+    GunId: 6
+    BaseCost: 2500
+    CostMultiplier: 1.4
+    ValueMultiplier: 1.28
+    MaxLevel: 50
+  - Id: 7
+    GunId: 7
+    BaseCost: 5000
+    CostMultiplier: 1.45
+    ValueMultiplier: 1.3
+    MaxLevel: 60
+  config:
+  - Id: 0
+    Key: StartGunIndex
+    ValueInt: 0
+    ValueFloat: 0
+    ValueString: 
+  - Id: 1
+    Key: ClickCooldownMs
+    ValueInt: 0
+    ValueFloat: 0.1
+    ValueString: 
+  - Id: 2
+    Key: AutoSaveSeconds
+    ValueInt: 0
+    ValueFloat: 0
+    ValueString: 15
+  - Id: 3
+    Key: CriticalColor
+    ValueInt: 0
+    ValueFloat: 0
+    ValueString: '#FFD54A'
+  monsters:
+  - Id: 0
+    Name: Slime
+    BaseHP: 10
+    BaseDefense: 0
+    ExpReward: 5
+    HpScaling: 1.15
+    SpriteName: Slime
+  - Id: 1
+    Name: Dummy
+    BaseHP: 30
+    BaseDefense: 0
+    ExpReward: 10
+    HpScaling: 1.2
+    SpriteName: Dummy
+  - Id: 2
+    Name: Goblin
+    BaseHP: 80
+    BaseDefense: 1
+    ExpReward: 20
+    HpScaling: 1.25
+    SpriteName: Goblin
+  - Id: 3
+    Name: Orc
+    BaseHP: 180
+    BaseDefense: 2
+    ExpReward: 40
+    HpScaling: 1.28
+    SpriteName: Orc
+  - Id: 4
+    Name: Robot
+    BaseHP: 400
+    BaseDefense: 4
+    ExpReward: 80
+    HpScaling: 1.32
+    SpriteName: Robot
+  - Id: 5
+    Name: Dragon
+    BaseHP: 1000
+    BaseDefense: 8
+    ExpReward: 150
+    HpScaling: 1.35
+    SpriteName: Dragon

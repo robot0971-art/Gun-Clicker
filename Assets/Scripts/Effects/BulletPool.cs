@@ -48,7 +48,12 @@ public class BulletPool : MonoBehaviour
     /// </summary>
     private Bullet CreateBullet()
     {
-        var bullet = Instantiate(bulletPrefab, poolParent);
+        var bullet = poolParent != null
+            ? Instantiate(bulletPrefab, poolParent)
+            : Instantiate(bulletPrefab);
+
+        bullet.transform.localPosition = Vector3.zero;
+        bullet.transform.localRotation = Quaternion.identity;
         bullet.Initialize(this);
         bullet.gameObject.SetActive(false);
         bulletPool.Enqueue(bullet);

@@ -1,9 +1,0 @@
-Id,Name,ClickValue,UnlockClicks,SpriteName,BaseDamage,AttackSpeed,CriticalChance,CriticalMultiplier,EvolveLevel,NextGunId,IsFinalForm
-1,Revolver,1,0,Revolver,10,1,0.1,2,10,2,False
-2,M92,2,100,M92,25,1,0.12,2,10,3,False
-3,Luger,4,200,Luger,60,1,0.15,2,10,4,False
-4,SawedOffShotgun,7,400,SawedOffShotgun,150,1,0.18,2.2,10,5,False
-5,MP5,12,800,MP5,400,1.2,0.2,2.2,10,6,False
-6,M15,20,1600,M15,1000,1.2,0.22,2.5,10,7,False
-7,AK47,35,3200,AK47,2500,1.5,0.25,2.5,10,8,False
-8,M24,60,6400,M24,6000,1.5,0.3,3,10,-1,True
