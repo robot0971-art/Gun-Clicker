@@ -87,12 +87,14 @@ public class SaveManager
                 for (int i = 0; i < saveData.GunExperiences.Length; i++)
                 {
                     var exp = saveData.GunExperiences[i];
-                    data.GunExperiences[i] = new GunExperienceData(exp.GunId)
+                    var loadedExp = new GunExperienceData(exp.GunId)
                     {
                         Level = exp.Level,
                         CurrentExp = exp.CurrentExp,
                         ExpToNextLevel = exp.ExpToNextLevel
                     };
+                    loadedExp.Normalize();
+                    data.GunExperiences[i] = loadedExp;
                 }
             }
         }

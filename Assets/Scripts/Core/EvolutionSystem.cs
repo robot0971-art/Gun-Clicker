@@ -54,6 +54,12 @@ public class EvolutionSystem
             return;
         }
 
+        if (gameData.CurrentGunIndex == currentGunId)
+        {
+            gameData.CurrentGunIndex = nextGunId;
+        }
+
+        gameData.ClickCounts[nextGunId] = 1;
         var nextGunData = gameDataAsset.guns[nextGunId];
 
         EventBus<GunEvolvedEvent>.Publish(new GunEvolvedEvent
@@ -63,12 +69,6 @@ public class EvolutionSystem
             NewGunName = nextGunData.Name
         });
 
-        if (gameData.CurrentGunIndex == currentGunId)
-        {
-            gameData.CurrentGunIndex = nextGunId;
-        }
-
-        gameData.ClickCounts[nextGunId] = 1;
         saveManager.Save(gameData);
 
         Debug.Log($"[EvolutionSystem] Evolution complete! New gun: {nextGunData.Name}");

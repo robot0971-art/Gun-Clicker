@@ -18,11 +18,14 @@ MonoBehaviour:
     ClickValue: 1
     UnlockClicks: 0
     SpriteName: Luger
+    GunSprite: {fileID: 2786011596341744153, guid: 411598b792492324281382b2b92cda24, type: 3}
+    FirePointOffset: {x: 0, y: 0, z: 0}
+    MuzzleFlashOffset: {x: 0, y: 0, z: 0}
     BaseDamage: 4
     AttackSpeed: 1
     CriticalChance: 0.05
     CriticalMultiplier: 1.5
-    EvolveLevel: 8
+    EvolveLevel: 2
     NextGunId: 1
     IsFinalForm: 0
   - Id: 1
@@ -30,11 +33,14 @@ MonoBehaviour:
     ClickValue: 2
     UnlockClicks: 10
     SpriteName: M92
+    GunSprite: {fileID: 4459829494417465688, guid: b6187dfcd286d6e42ac8f8c3622fd724, type: 3}
+    FirePointOffset: {x: 0, y: 0, z: 0}
+    MuzzleFlashOffset: {x: 0, y: 0, z: 0}
     BaseDamage: 8
     AttackSpeed: 1
     CriticalChance: 0.08
     CriticalMultiplier: 1.6
-    EvolveLevel: 16
+    EvolveLevel: 2
     NextGunId: 2
     IsFinalForm: 0
   - Id: 2
@@ -42,11 +48,14 @@ MonoBehaviour:
     ClickValue: 4
     UnlockClicks: 25
     SpriteName: Revolver
+    GunSprite: {fileID: 4011165979584494121, guid: 6276f2a5cc424614c88831d3d6065a42, type: 3}
+    FirePointOffset: {x: 0, y: 0, z: 0}
+    MuzzleFlashOffset: {x: 0, y: 0, z: 0}
     BaseDamage: 15
     AttackSpeed: 0.9
     CriticalChance: 0.1
     CriticalMultiplier: 1.8
-    EvolveLevel: 32
+    EvolveLevel: 2
     NextGunId: 3
     IsFinalForm: 0
   - Id: 3
@@ -54,11 +63,14 @@ MonoBehaviour:
     ClickValue: 8
     UnlockClicks: 60
     SpriteName: M15
+    GunSprite: {fileID: 3431268230107433469, guid: 3c392bd87816ffe43bac338193c27889, type: 3}
+    FirePointOffset: {x: 0, y: 0, z: 0}
+    MuzzleFlashOffset: {x: 1.2, y: 0, z: 0}
     BaseDamage: 25
     AttackSpeed: 0.8
     CriticalChance: 0.12
     CriticalMultiplier: 1.9
-    EvolveLevel: 70
+    EvolveLevel: 2
     NextGunId: 4
     IsFinalForm: 0
   - Id: 4
@@ -66,11 +78,14 @@ MonoBehaviour:
     ClickValue: 14
     UnlockClicks: 120
     SpriteName: MP5
+    GunSprite: {fileID: 4936067981747489776, guid: 53c57bb9f402da143b66138bbe469f89, type: 3}
+    FirePointOffset: {x: 0, y: 0, z: 0}
+    MuzzleFlashOffset: {x: 0.8, y: 0, z: 0}
     BaseDamage: 40
     AttackSpeed: 0.12
     CriticalChance: 0.15
     CriticalMultiplier: 2
-    EvolveLevel: 140
+    EvolveLevel: 2
     NextGunId: 5
     IsFinalForm: 0
   - Id: 5
@@ -78,11 +93,14 @@ MonoBehaviour:
     ClickValue: 24
     UnlockClicks: 250
     SpriteName: SawedOffShotgun
+    GunSprite: {fileID: 4161039767378812005, guid: 01de8d49c40262941875f410ab2c1ec3, type: 3}
+    FirePointOffset: {x: 0, y: 0, z: 0}
+    MuzzleFlashOffset: {x: 0.8, y: 0, z: 0}
     BaseDamage: 70
     AttackSpeed: 0.75
     CriticalChance: 0.18
     CriticalMultiplier: 2.5
-    EvolveLevel: 300
+    EvolveLevel: 2
     NextGunId: 6
     IsFinalForm: 0
   - Id: 6
@@ -90,11 +108,14 @@ MonoBehaviour:
     ClickValue: 40
     UnlockClicks: 500
     SpriteName: M24
+    GunSprite: {fileID: -3656602075172381145, guid: 91762b16231652448a8922be285835d2, type: 3}
+    FirePointOffset: {x: 0, y: 0, z: 0}
+    MuzzleFlashOffset: {x: 1.3, y: -0.1, z: 0}
     BaseDamage: 120
     AttackSpeed: 1.5
     CriticalChance: 0.1
     CriticalMultiplier: 2.2
-    EvolveLevel: 650
+    EvolveLevel: 2
     NextGunId: 7
     IsFinalForm: 0
   - Id: 7
@@ -102,6 +123,9 @@ MonoBehaviour:
     ClickValue: 65
     UnlockClicks: 0
     SpriteName: AK47
+    GunSprite: {fileID: 8271715202566429118, guid: fd14ab960e140724abfb9a9606560543, type: 3}
+    FirePointOffset: {x: 0, y: 0, z: 0}
+    MuzzleFlashOffset: {x: 1, y: 0, z: 0}
     BaseDamage: 200
     AttackSpeed: 0.15
     CriticalChance: 0.22

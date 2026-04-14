@@ -3,6 +3,9 @@ using System;
 [Serializable]
 public class GunExperienceData
 {
+    public const int MaxGunLevel = 5;
+    private static int expPerLevelStep = 100;
+
     public int GunId;
     public int Level;
     public int CurrentExp;
@@ -13,23 +16,58 @@ public class GunExperienceData
         GunId = gunId;
         Level = 1;
         CurrentExp = 0;
-        ExpToNextLevel = CalculateExpForLevel(2);
+        ExpToNextLevel = CalculateRequiredExpForLevel(2);
     }
 
-    private int CalculateExpForLevel(int level)
+    public static int CalculateRequiredExpForLevel(int level)
     {
-        return level * level * 100;
+        return (level - 1) * expPerLevelStep;
+    }
+
+    public static void ConfigureExperience(int newExpPerLevelStep)
+    {
+        expPerLevelStep = Math.Max(1, newExpPerLevelStep);
     }
 
     public void AddExp(int exp)
     {
+        if (Level >= MaxGunLevel)
+        {
+            Level = MaxGunLevel;
+            CurrentExp = 0;
+            ExpToNextLevel = 0;
+            return;
+        }
+
         CurrentExp += exp;
-        while (CurrentExp >= ExpToNextLevel && Level < 100)
+        while (CurrentExp >= ExpToNextLevel && Level < MaxGunLevel)
         {
             CurrentExp -= ExpToNextLevel;
             Level++;
-            ExpToNextLevel = CalculateExpForLevel(Level + 1);
+            ExpToNextLevel = Level >= MaxGunLevel ? 0 : CalculateRequiredExpForLevel(Level + 1);
         }
+
+        if (Level >= MaxGunLevel)
+        {
+            Level = MaxGunLevel;
+            CurrentExp = 0;
+            ExpToNextLevel = 0;
+        }
+    }
+
+    public void Normalize()
+    {
+        Level = Math.Clamp(Level, 1, MaxGunLevel);
+
+        if (Level >= MaxGunLevel)
+        {
+            CurrentExp = 0;
+            ExpToNextLevel = 0;
+            return;
+        }
+
+        ExpToNextLevel = CalculateRequiredExpForLevel(Level + 1);
+        CurrentExp = Math.Clamp(CurrentExp, 0, Math.Max(0, ExpToNextLevel - 1));
     }
 }
 

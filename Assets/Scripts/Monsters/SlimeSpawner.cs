@@ -2,10 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class MonsterSpawnOption
+{
+    public string monsterName = "Slime";
+    public int monsterId = 0;
+    public int monsterHP = 16;
+    public SlimePool pool;
+}
+
 public class SlimeSpawner : MonoBehaviour
 {
     [Header("Pool")]
     [SerializeField] private SlimePool slimePool;
+    [SerializeField] private List<MonsterSpawnOption> monsterPools = new List<MonsterSpawnOption>();
 
     [Header("Spawn")]
     [SerializeField] private Transform spawnPoint;
@@ -19,9 +29,9 @@ public class SlimeSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (slimePool == null)
+        if (!HasValidPoolConfiguration())
         {
-            Debug.LogError("[SlimeSpawner] SlimePool is not assigned.");
+            Debug.LogError("[SlimeSpawner] No valid monster pool is assigned.");
             return;
         }
 
@@ -42,29 +52,30 @@ public class SlimeSpawner : MonoBehaviour
 
     private void SpawnOne()
     {
-        if (slimePool == null)
+        var spawnOption = GetRandomSpawnOption();
+        if (spawnOption == null || spawnOption.pool == null)
         {
-            Debug.LogError("[SlimeSpawner] SlimePool is not assigned.");
+            Debug.LogError("[SlimeSpawner] Failed to find a valid monster pool.");
             return;
         }
 
         Vector3 position = spawnPoint != null ? spawnPoint.position : transform.position;
-        var slime = slimePool.GetSlime(position, monsterId, monsterHP);
+        var slime = spawnOption.pool.GetSlime(position, spawnOption.monsterId, spawnOption.monsterHP);
 
         if (slime == null)
         {
-            Debug.LogError("[SlimeSpawner] Failed to get slime from pool.");
+            Debug.LogError("[SlimeSpawner] Failed to get monster from pool.");
             return;
         }
 
         EventBus<MonsterSpawnedEvent>.Publish(new MonsterSpawnedEvent
         {
-            MonsterId = monsterId,
-            MaxHP = monsterHP,
-            MonsterName = monsterName
+            MonsterId = spawnOption.monsterId,
+            MaxHP = spawnOption.monsterHP,
+            MonsterName = spawnOption.monsterName
         });
 
-        Debug.Log($"[SlimeSpawner] Spawned {monsterName} at {position}");
+        Debug.Log($"[SlimeSpawner] Spawned {spawnOption.monsterName} at {position}");
     }
 
     private void HideSceneSlimes()
@@ -77,5 +88,58 @@ public class SlimeSpawner : MonoBehaviour
                 existingSlime.gameObject.SetActive(false);
             }
         }
+    }
+
+    private bool HasValidPoolConfiguration()
+    {
+        if (GetValidSpawnOptions().Count > 0)
+        {
+            return true;
+        }
+
+        return slimePool != null;
+    }
+
+    private MonsterSpawnOption GetRandomSpawnOption()
+    {
+        var validOptions = GetValidSpawnOptions();
+        if (validOptions.Count == 0)
+        {
+            if (slimePool == null)
+            {
+                return null;
+            }
+
+            return new MonsterSpawnOption
+            {
+                pool = slimePool,
+                monsterId = monsterId,
+                monsterHP = monsterHP,
+                monsterName = monsterName
+            };
+        }
+
+        int index = Random.Range(0, validOptions.Count);
+        return validOptions[index];
+    }
+
+    private List<MonsterSpawnOption> GetValidSpawnOptions()
+    {
+        var validOptions = new List<MonsterSpawnOption>();
+
+        if (monsterPools == null)
+        {
+            return validOptions;
+        }
+
+        foreach (var option in monsterPools)
+        {
+            if (option != null && option.pool != null)
+            {
+                validOptions.Add(option);
+            }
+        }
+
+        return validOptions;
     }
 }

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameManager
 {
+    private const bool ResetSaveOnStartForDevelopment = true;
+
     private GameDataAsset gameDataAsset;
     private GameData gameData;
     private SaveManager saveManager;
@@ -16,6 +18,11 @@ public class GameManager
         gameDataAsset = DIContainer.Resolve<GameDataAsset>();
         gameData = DIContainer.Resolve<GameData>();
         saveManager = DIContainer.Resolve<SaveManager>();
+
+        if (ResetSaveOnStartForDevelopment)
+        {
+            saveManager.Clear();
+        }
 
         if (saveManager.HasSaveData())
         {

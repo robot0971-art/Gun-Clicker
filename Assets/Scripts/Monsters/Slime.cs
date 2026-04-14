@@ -14,6 +14,7 @@ public class Slime : MonoBehaviour
     [SerializeField] private float stopDistance = 0.8f;
     [SerializeField] private bool followTarget = true;
     [SerializeField] private bool faceTarget = true;
+    [SerializeField] private bool invertFacing;
     [SerializeField] private bool lockYAxis = true;
 
     [Header("Animation")]
@@ -344,7 +345,8 @@ public class Slime : MonoBehaviour
             return;
         }
 
-        spriteRenderer.flipX = targetPosition.x < transform.position.x;
+        bool shouldFlip = targetPosition.x < transform.position.x;
+        spriteRenderer.flipX = invertFacing ? !shouldFlip : shouldFlip;
     }
 
     private void UpdateAnimationState(bool moving)
@@ -463,7 +465,9 @@ public class Slime : MonoBehaviour
             return;
         }
 
-        if (animatorControllerOverride != null && animator.runtimeAnimatorController != animatorControllerOverride)
+        // Prefer the controller already assigned on the Animator.
+        // Only fall back to the override slot when the Animator has no controller yet.
+        if (animator.runtimeAnimatorController == null && animatorControllerOverride != null)
         {
             animator.runtimeAnimatorController = animatorControllerOverride;
         }
